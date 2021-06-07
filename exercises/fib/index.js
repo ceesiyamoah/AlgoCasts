@@ -7,7 +7,32 @@
 // forms the first ten entries of the fibonacci series.
 // Example:
 //   fib(4) === 3
+const memoize = (fn) => {
+	const cache = {};
+	return (...args) => {
+		if (cache[args]) {
+			return cache[args];
+		}
+		const result = fn.apply(this, args);
+		cache[args] = result;
+		return result;
+	};
+};
 
-function fib(n) {}
+function fib(n) {
+	if (n < 2) {
+		return n;
+	}
+	return fib(n - 2) + fib(n - 1);
+}
+fib = memoize(fib);
 
 module.exports = fib;
+
+// function fib(n) {
+// 	const arr = [0, 1];
+// 	for (let i = 2; i <= n; i++) {
+// 		arr.push(arr[i - 1] + arr[i - 2]);
+// 	}
+// 	return arr[n];
+// }

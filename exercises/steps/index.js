@@ -17,6 +17,40 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+function steps(n) {
+	for (let i = 1; i <= n; i++) {
+		let out = '';
+		for (let j = 1; j <= n; j++) {
+			if (j > i) {
+				out += ' ';
+			} else {
+				out += '#';
+			}
+		}
+		console.log(out);
+	}
+}
 
 module.exports = steps;
+
+// function steps(n) {
+// 	for (let i = 1; i <= n; i++) {
+// 		let out = '#'.repeat(i);
+// 		out += ' '.repeat(n - out.length);
+// 		console.log(out);
+// 	}
+// }
+
+// function steps(n) {
+// 	for (let i = 1; i <= n; i++) {
+// 		let out = '';
+// 		for (let j = 1; j <= n; j++) {
+// 			if (j > i) {
+// 				out += ' ';
+// 			} else {
+// 				out += '#';
+// 			}
+// 		}
+// 		console.log(out);
+// 	}
+// }
